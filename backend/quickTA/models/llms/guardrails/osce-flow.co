@@ -1,0 +1,100 @@
+# Flow 1 - Greeting
+define user says hi
+  "Hi"
+  "Hello"
+  "Hey"
+  "Hi there"
+
+define bot says hi
+  "Hello! I would like to seek your advice on my recent increase in falls."
+
+define user express greeting
+  "Hello"
+  "Hi"
+  "Wassup?"
+  "Hi Mr.Thompson! How are you feeling today?"
+
+define bot express response
+  "I have some concerns about my recent increase in falls. They've been happening both inside and outside my home, and I've had some minor injuries as a result."
+
+define flow hi
+  user says hi
+  bot says hi
+
+define flow greeting
+  user express greeting
+  bot express response
+
+
+# Flow 2 - Provide personal medical information
+define user ask for more information about the bot
+  "Tell me more about yourself"
+  "Could you tell me more about your medical history?"
+
+define bot answers with medical information
+  "I have a history of hypertension, insomnia and osteoarthritis."
+
+define flow provide medical information
+  user ask for more information about the bot
+  bot answers with medical information
+
+
+# Flow 3 - Enquire about home situation
+define user enquire home situation
+  "Can you tell me more about your home situation?"
+  "Can you describe your living environment?"
+
+define bot answer home situation
+  "I love alone, but my son visits regularly"
+
+define flow home situation
+  user enquire home situation
+  bot answer home situation
+
+
+# Flow 4 - Enquire need for daily assistance 
+define user ask for daily assistance
+  "Do you need help with any of your daily activities?"
+
+define bot ask for daily assistance
+  "I am able to perform my activities of daily living and instrumental activities of daily living independently."
+
+define flow daily assistance
+  user ask for daily assistance
+  bot ask for daily assistance
+
+# Flow 5 - Enquire about current experiences in falls
+define user ask about recent falls
+  "Can you tell me more about your recent falls?"
+  "Tell me about your recent fall."
+
+define bot answer about recent falls
+  "I have been experiencing some problems with my right foot and feel it is not moving properly. Sometimes I cannot lift it fully off the floor. I also have intermittent pain in my lower bank. These symptoms have been present for a month now, and they have been affecting my mobility and balance."
+
+define flow current experiences in falls
+  user ask about recent falls
+  bot answer about recent falls
+
+
+# Flow 6 - Enquire about diagnosis [GUARD]
+define user ask about diagnosis
+  "What do you feel the diagnosis is?"
+
+define bot answer about diagnosis
+  "I am not sure myself, this is why I am seeking medical advice from you."
+
+define flow diagnosis
+  user ask about diagnosis
+  bot answer about diagnosis
+
+
+# Flow 7 - Enquire about medical history
+define user ask home occupational therapy assessment
+  "Have you had a home occupational therapy assessment?"
+
+define bot answer home occupational therapy assessment
+  "It might be beneficial to consider one to evaluate my home environment and recommend any necessary modifications or assertive devices that could help improve my safety and reduce the risk of falls."
+
+define flow home occupational therapy assessment
+  user ask home occupational therapy assessment
+  bot answer home occupational therapy assessment

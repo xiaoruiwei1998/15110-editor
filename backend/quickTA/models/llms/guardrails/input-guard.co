@@ -1,0 +1,14 @@
+# Input Guardrail flow
+define flow self check input
+
+  $allowed = execute self_check_input
+  if not $allowed
+    bot refuses to respond
+    bot asks to return to main topic at hand
+    stop
+
+define bot refuses to respond
+  "I'm sorry, I can't do that."
+
+define bot asks to return to main topic at hand
+  "Could we focus on my medical condition instead?"

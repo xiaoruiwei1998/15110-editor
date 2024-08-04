@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Assignment from './components/Assignment';
-import FileEditor from './components/FileEditor';
-import Output from './components/Output';
-import AssignmentsSidebar from './components/AssignmentsSidebar';
-import FilesSidebar from './components/FilesSidebar';
-import Hints from './components/Hints';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import icona from './assets/icona.png';
 import iconb from './assets/iconb.png';
+import Assignment from './components/Assignment';
+import AssignmentsSidebar from './components/AssignmentsSidebar';
+import FileEditor from './components/FileEditor';
+import FilesSidebar from './components/FilesSidebar';
+import Hints from './components/Hints';
+import Output from './components/Output';
 
 const assignmentsData = [
   { week: 1, assignments: ['Lab1', 'Lab2', 'Programming Activity 1', 'Programming Activity 2', 'Problem Set 1', 'Problem Set 2'] },
@@ -73,6 +73,18 @@ function App() {
     }
   };
 
+  const generateOrGetUserId = () => {
+    let userId = localStorage.getItem('uid');
+    if (!userId) {
+      userId = Math.random().toString(36).substring(7);
+      localStorage.setItem('uid', userId);
+    }
+  }
+
+  useEffect(() => {
+    generateOrGetUserId(); 
+  }, []);
+
   return (
     <div className="app">
       <div className="main-content">
@@ -92,7 +104,9 @@ function App() {
             <Assignment />
           </div>
           <div className="hints-section">
-            <Hints />
+            <Hints
+              fileContent={fileContent}
+            />
           </div>
         </div>
         <div className="right-pane">

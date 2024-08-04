@@ -1,0 +1,7 @@
+from enum import Enum
+
+class DistributionStrategy(Enum): 
+  RANDOM = "RANDOM"
+  RANDOM_UNIFORM = "RANDOM_UNIFORM"
+  SEQUENTIAL_UNIFORM = "SEQUENTIAL_UNIFORM"
+  ROUND_ROBIN = "ROUND_ROBIN"
