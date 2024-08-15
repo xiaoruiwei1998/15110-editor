@@ -4,7 +4,7 @@ from student.repository import ConversationRepository
 
 env = environ.Env()
 environ.Env.read_env()
-OPENAI_KEY = env('OPENAI_KEY')
+OPENAI_KEY = env('OPENAI_KEY', None)
 
 def completion(conversation, system_message, user_message):
 

@@ -7,9 +7,9 @@ log = get_logger(__name__)
 env = environ.Env()
 environ.Env.read_env()
 
-BASE_URL = f"https://{env('AZURE_RESOURCE_NAME')}.openai.azure.com/"
-API_KEY = env('AZURE_API_KEY')
-DEPLOYMENT_NAME = env('AZURE_DEPLOYMENT_NAME')
+BASE_URL = f"https://{env('AZURE_RESOURCE_NAME', None)}.openai.azure.com/"
+API_KEY = env('AZURE_API_KEY', None)
+DEPLOYMENT_NAME = env('AZURE_DEPLOYMENT_NAME', None)
 
 def AzureModel(max_tokens=2000, llm_model="gpt-4"):
   return AzureChatOpenAI(
